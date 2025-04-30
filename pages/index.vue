@@ -264,6 +264,25 @@
   import SectionTransition from '~/components/animations/SectionTransition.vue'
   import { ref, onMounted } from 'vue'
   import GravatarCard from '~/components/profile/GravatarCard.vue'
+  import { useSeoMeta, useRuntimeConfig } from '#app'
+
+  // SEO Meta for the Home Page
+  const siteUrl = useRuntimeConfig().public.siteUrl as string
+  const pageTitle = 'Web3 Security Researcher & Auditor'
+  const pageDescription = 'Expert Web3 Security Researcher specializing in smart contract audits, ZK proofs, and blockchain security. Secure your project with cutting-edge analysis.'
+
+  useSeoMeta({
+    title: pageTitle,
+    description: pageDescription,
+    ogTitle: `${pageTitle} - zkEVM.dev`,
+    ogDescription: pageDescription,
+    ogUrl: siteUrl,
+    twitterTitle: `${pageTitle} - zkEVM.dev`,
+    twitterDescription: pageDescription,
+    ogImage: `${siteUrl}/og.png`,
+    twitterImage: `${siteUrl}/og.png`,
+    twitterCard: 'summary_large_image',
+  })
 
   // Partners list
   const partners = ref<string[]>([])

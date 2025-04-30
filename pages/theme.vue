@@ -138,7 +138,7 @@ const gradient = createGradient('primary', 'accent'); // linear-gradient(to righ
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   /**
    * Theme Showcase Page
    *
@@ -146,6 +146,28 @@ const gradient = createGradient('primary', 'accent'); // linear-gradient(to righ
    * to various UI elements. This page helps maintain design consistency and serves as
    * a reference for developers.
    */
+
+  import { useSeoMeta, useRuntimeConfig } from '#app' // Import composables
+
+  // SEO Meta for the Theme Showcase Page
+  const siteUrl = useRuntimeConfig().public.siteUrl as string;
+  const pageTitle = 'Theme Showcase';
+  const pageDescription = 'Showcase of the color palette, UI elements, and design system used on zkEVM.dev.';
+
+  useSeoMeta({
+    title: pageTitle,
+    description: pageDescription,
+    ogTitle: `${pageTitle} - zkEVM.dev`,
+    ogDescription: pageDescription,
+    ogUrl: `${siteUrl}/theme`,
+    twitterTitle: `${pageTitle} - zkEVM.dev`,
+    twitterDescription: pageDescription,
+    robots: 'noindex, nofollow',
+    // Explicitly set image and card type
+    ogImage: `${siteUrl}/og.png`,
+    twitterImage: `${siteUrl}/og.png`,
+    twitterCard: 'summary_large_image',
+  });
 </script>
 
 <style scoped>

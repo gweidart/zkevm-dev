@@ -36,36 +36,38 @@ export default defineNuxtConfig({
    */
   app: {
     head: {
-      title: 'zkEVM.dev | Web3 Security Researcher',
+      titleTemplate: '%s - zkEVM.dev',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
         {
           name: 'description',
           content:
-            'Portfolio of a Web3 Security Researcher. In the dark forest, only the best survive.',
+            'Portfolio of a Web3 Security Researcher exploring the frontiers of blockchain security and zero-knowledge proofs. In the dark forest, only the best survive.',
         },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'theme-color', content: '#031118' },
-        // Open Graph / Social media meta tags
-        { name: 'og:title', content: 'zkEVM.dev | Web3 Security Researcher' },
+        { property: 'og:site_name', content: 'zkEVM.dev' },
+        { property: 'og:title', content: 'zkEVM.dev | Web3 Security Researcher' },
         {
-          name: 'og:description',
+          property: 'og:description',
           content:
-            'Portfolio of a Web3 Security Researcher. In the dark forest, only the best survive.',
+            'Portfolio of a Web3 Security Researcher exploring blockchain security and ZK proofs. In the dark forest, only the best survive.',
         },
-        { name: 'og:type', content: 'website' },
-        { name: 'og:url', content: 'https://zkevm.dev' },
-        { name: 'og:image', content: 'https://zkevm.dev/images/social-card.png' },
-        // Twitter specific tags
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://zkevm.dev'}/og.png` },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: 'zkEVM.dev Logo and Title' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'zkEVM.dev | Web3 Security Researcher' },
         {
           name: 'twitter:description',
           content:
-            'Portfolio of a Web3 Security Researcher. In the dark forest, only the best survive.',
+            'Portfolio of a Web3 Security Researcher exploring blockchain security and ZK proofs. In the dark forest, only the best survive.',
         },
-        { name: 'twitter:image', content: 'https://zkevm.dev/images/social-card.png' },
+        { name: 'twitter:image', content: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://zkevm.dev'}/og.png` },
+        { name: 'twitter:image:alt', content: 'zkEVM.dev Logo and Title' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

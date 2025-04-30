@@ -84,6 +84,16 @@
           sameAs: ['https://github.com/zkevm-dev', 'https://twitter.com/zkevm_dev'],
         }),
       },
+      // Add WebSite structured data
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          url: config.public.siteUrl,
+          name: 'zkEVM.dev',
+        }),
+      }
     ],
   })
 

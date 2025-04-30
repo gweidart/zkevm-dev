@@ -131,6 +131,25 @@
 <script setup lang="ts">
   import DefaultLayout from '~/components/layout/DefaultLayout.vue'
   import ScrollAnimationWrapper from '~/components/common/ScrollAnimationWrapper.vue'
+  import { useSeoMeta, useRuntimeConfig } from '#app'
+
+  // SEO Meta for the Research Page
+  const siteUrl = useRuntimeConfig().public.siteUrl as string;
+  const pageTitle = 'Security Research';
+  const pageDescription = 'Explore cutting-edge Web3 security research on zkEVM, MEV protection, secure bridge architectures, and formal verification by zkEVM.dev.';
+
+  useSeoMeta({
+    title: pageTitle,
+    description: pageDescription,
+    ogTitle: `${pageTitle} - zkEVM.dev`,
+    ogDescription: pageDescription,
+    ogUrl: `${siteUrl}/research`,
+    twitterTitle: `${pageTitle} - zkEVM.dev`,
+    twitterDescription: pageDescription,
+    ogImage: `${siteUrl}/og.png`,
+    twitterImage: `${siteUrl}/og.png`,
+    twitterCard: 'summary_large_image',
+  });
 </script>
 
 <style scoped>
