@@ -1,0 +1,344 @@
+/* Import font styles */
+@import './fonts.css';
+
+/* CSS Architecture follows ITCSS (Inverted Triangle CSS) methodology
+ * for better organization, specificity management and scalability:
+ * 1. Settings: Variables and configuration
+ * 2. Tools: Mixins and functions (not applicable in pure CSS)
+ * 3. Generic: Reset/normalize styles, box-sizing
+ * 4. Elements: Base HTML element styling
+ * 5. Objects: Non-cosmetic design patterns
+ * 6. Components: Specific UI components
+ * 7. Utilities: Helper classes with high specificity
+ */
+
+/* 1. Settings - Variables */
+:root {
+  /* Color Palette - Updated Theme */
+  --color-background: #031118;
+  --color-surface: #051a23;
+  --color-surface-variant: #072530;
+  --color-primary: #16f08c;
+  --color-primary-variant: #0fd67d;
+  --color-secondary: #d5b2c9;
+  --color-accent: #d86475;
+  --color-text: #e6e6e6;
+  --color-text-muted: #a8b0b3;
+  --color-border: #193642;
+
+  /* Typography - Font families defined in fonts.css */
+  /* --font-family-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif; */
+  /* --font-family-body: 'Inter', system-ui, sans-serif; */
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Animations */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(3, 17, 24, 0.3);
+  --shadow-md: 0 4px 8px rgba(3, 17, 24, 0.5);
+  --shadow-lg: 0 8px 16px rgba(3, 17, 24, 0.7);
+
+  /* Z-Indexes */
+  --z-background: -1;
+  --z-default: 1;
+  --z-header: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+
+  /* Breakpoints - Added for responsive design */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Container max-width */
+  --container-max-width: 1200px;
+}
+
+/* 2. Generic - Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* 3. Elements - Base styling */
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-variant);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* 4. Objects - Layout patterns */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+/* 5. Components - UI Components */
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-variant);
+  color: var(--color-background);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+/* Section styling */
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* 6. Utilities - Helper classes */
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Margin utilities */
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Display utilities */
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-normal);
+}
+
+/* Page Transition */
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-variant);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "zkevm.dev",
+  "description": "Web3 Security Research Portfolio. In the dark forest, only the best survive.",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=7.0.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore . --fix",
+    "typecheck": "vue-tsc --noEmit",
+    "analyze": "nuxt analyze",
+    "clean": "rm -rf node_modules .nuxt .output",
+    "format": "prettier --write \"**/*.{js,ts,vue,css,scss,json,md}\""
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "gsap": "^3.12.7",
+    "nuxt": "^3.16.2",
+    "nuxt-svgo": "4.0.17",
+    "reka-ui": "^2.2.0",
+    "three": "^0.175.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.36",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/uil": "^1.2.3",
+    "@nuxt/fonts": "^0.11.1",
+    "@nuxt/image": "^1.10.0",
+    "@nuxtjs/sitemap": "^7.2.10",
+    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@types/node": "^22.15.3",
+    "@types/three": "^0.175.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "postcss-preset-env": "^10.1.6",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.8"
+  }
+}
